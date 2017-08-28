@@ -1,4 +1,4 @@
-package classLoaderDemo1;
+package classLoaderDemo;
 
 import java.io.File;
 import java.net.URL;
@@ -30,8 +30,8 @@ public class HelloMain {
             URLClassLoader loader = new URLClassLoader((new URL[]{url}));
             Class theClass = loader.loadClass("Worker");
 
-            IWorker worker = (IWorker) theClass.newInstance();
-            worker.doit();
+            Object obj = theClass.newInstance();
+            obj.getClass().getMethod("doit").invoke(obj, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
