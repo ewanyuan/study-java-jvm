@@ -16,8 +16,9 @@ public class ClassVersion {
         byte[] data = new byte[8];
 
         FileInputStream in = new FileInputStream(classFile);
-        //读取文件前8字节
-        //实际上版本号写在第4-7字节上（从第0字节开始算）
+        //前面8个字节CA FE BA BE是固定的。
+        //随后4个字节00 00是次版本号
+        //再后面的4个字节00 34是JDK的版本号(JDK1.8)。
         in.read(data, 0, 8);
         in.close();
 
@@ -43,6 +44,8 @@ public class ClassVersion {
                 return "JDK1.6";
             case 51:
                 return "JDK1.7";
+            case 52:
+                return "JDK1.8";
             default:
                 return "unknown";
         }
