@@ -1,4 +1,4 @@
-package StwDemo;
+package stwDemo;
 
 /**
  * Created by ewan on 06/08/2017.

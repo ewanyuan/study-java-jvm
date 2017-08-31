@@ -1,4 +1,4 @@
-package StwDemo;
+package stwDemo;
 
 import java.util.HashMap;
 
